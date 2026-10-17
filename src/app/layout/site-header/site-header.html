@@ -1,0 +1,85 @@
+<header class="site-header">
+  <div class="header-inner wrap">
+    <a class="brand" routerLink="/" [attr.aria-label]="profile.name" (click)="closeMenu()">
+      <span class="brand-mark" aria-hidden="true">SDC</span>
+      <span class="brand-name">{{ profile.name }}</span>
+    </a>
+    <nav
+      id="site-nav"
+      class="site-nav"
+      [class.is-open]="menuOpen()"
+      [attr.aria-label]="messages().nav.primary"
+    >
+      <a
+        routerLink="/"
+        routerLinkActive="is-active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        ariaCurrentWhenActive="page"
+        (click)="closeMenu()"
+      >
+        {{ messages().nav.home }}
+      </a>
+      <a
+        routerLink="/projects"
+        routerLinkActive="is-active"
+        ariaCurrentWhenActive="page"
+        (click)="closeMenu()"
+      >
+        {{ messages().nav.projects }}
+      </a>
+      <a
+        routerLink="/about"
+        routerLinkActive="is-active"
+        ariaCurrentWhenActive="page"
+        (click)="closeMenu()"
+      >
+        {{ messages().nav.about }}
+      </a>
+      <a
+        routerLink="/contact"
+        routerLinkActive="is-active"
+        ariaCurrentWhenActive="page"
+        (click)="closeMenu()"
+      >
+        {{ messages().nav.contact }}
+      </a>
+    </nav>
+    <div class="tools">
+      <div class="lang" role="group" [attr.aria-label]="messages().nav.language">
+        <button type="button" [attr.aria-pressed]="language.locale() === 'de'" [attr.aria-label]="messages().nav.german" (click)="choose('de')">
+          DE
+        </button>
+        <button type="button" [attr.aria-pressed]="language.locale() === 'en'" [attr.aria-label]="messages().nav.english" (click)="choose('en')">
+          EN
+        </button>
+      </div>
+      <button
+        type="button"
+        class="icon-button"
+        (click)="theme.toggle()"
+        [attr.aria-pressed]="pressed('dark')"
+        [attr.aria-label]="themeLabel()"
+      >
+        <svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6" />
+          <path d="M12 3v2.2M12 18.8V21M3 12h2.2M18.8 12H21M5.6 5.6l1.6 1.6M16.8 16.8l1.6 1.6M18.4 5.6l-1.6 1.6M7.2 16.8l-1.6 1.6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+        </svg>
+        <svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M15.5 3.5a8.2 8.2 0 1 0 5 12.2A7 7 0 0 1 15.5 3.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+        </svg>
+      </button>
+      <button
+        type="button"
+        class="icon-button menu-toggle"
+        (click)="toggleMenu()"
+        [attr.aria-expanded]="menuOpen()"
+        aria-controls="site-nav"
+      >
+        <span class="sr-only">{{ messages().nav.menu }}</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>

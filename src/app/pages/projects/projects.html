@@ -1,0 +1,9 @@
+<header class="page-intro">
+  <h1>{{ messages().projects.title }}</h1>
+  <p class="lede">{{ messages().projects.intro }}</p>
+</header>
+<div class="stack">
+  @for (project of projects; track project.id) {
+    <app-project-card [project]="project" />
+  }
+</div>

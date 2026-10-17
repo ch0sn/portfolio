@@ -1,0 +1,18 @@
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div>
+      <p class="footer-name">{{ profile.name }}</p>
+      <p class="footer-blurb">{{ messages().footer.blurb }}</p>
+    </div>
+    <nav [attr.aria-label]="messages().footer.navLabel">
+      <a routerLink="/projects">{{ messages().nav.projects }}</a>
+      <a routerLink="/about">{{ messages().nav.about }}</a>
+      <a routerLink="/contact">{{ messages().nav.contact }}</a>
+      <a [href]="profile.github" target="_blank" rel="noopener noreferrer">
+        {{ messages().contact.github }}
+        <span class="sr-only"> ({{ messages().projects.newTab }})</span>
+      </a>
+    </nav>
+    <p class="footer-copy">© {{ year }} {{ profile.name }}</p>
+  </div>
+</footer>
