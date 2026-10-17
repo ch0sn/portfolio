@@ -14,7 +14,10 @@ describe('About', () => {
     const text = (fixture.nativeElement as HTMLElement).textContent ?? '';
     expect(text).toContain('Wirtschaftsinformatik');
     expect(text).toContain('Universität Mannheim');
-    expect(text).toContain('BMW');
+    expect(text).toContain('Theresianum');
+    expect(text).toContain('BMW Group');
+    expect(text).toContain('Nintendo Europe');
+    expect(text).toContain('91,2');
     expect(text).toContain('Angular');
     expect(text).toContain('REST-APIs');
   });

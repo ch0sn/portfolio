@@ -50,6 +50,6 @@ Navigation labels, page chrome, and meta descriptions live in:
 
 `src/app/core/i18n/translations.ts`
 
-Search the data file for `TODO(owner)` before publishing missing details. The CV download points at `public/cv/sontek-daniel-cho-cv.pdf`, which is a placeholder until that file is replaced.
+Search the data file for `TODO(owner)` before publishing missing project details.
 
 See `CONTENT_GUIDE.md` for the same map in shorter form.

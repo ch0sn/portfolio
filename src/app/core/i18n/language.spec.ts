@@ -18,7 +18,7 @@ describe('Language', () => {
     const language = TestBed.inject(Language);
     language.use('en');
     expect(language.locale()).toBe('en');
-    expect(language.messages().home.role).toBe('Frontend Developer');
+    expect(language.messages().home.role).toBe('Frontend Developer / Software Developer');
     expect(localStorage.getItem('portfolio.lang')).toBe('en');
     expect(document.documentElement.lang).toBe('en');
   });

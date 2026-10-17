@@ -18,11 +18,11 @@ const de = {
   home: {
     metaTitle: 'Sontek Daniel Cho · Frontend-Entwickler',
     metaDescription:
-      'Frontend-Entwickler für Angular und TypeScript im Rhein-Main-Gebiet. Portfolio von Sontek Daniel Cho.',
-    kicker: 'Rhein-Main · Frankfurt, Wiesbaden, Mainz',
-    role: 'Frontend-Entwickler',
+      'Frontend-Entwickler und Softwareentwickler für Angular und TypeScript in Mainz-Kastel. Portfolio von Sontek Daniel Cho.',
+    kicker: 'Mainz-Kastel · Rhein-Main',
+    role: 'Frontend-Entwickler / Softwareentwickler',
     focus: 'Angular & TypeScript',
-    lede: 'Ich baue klare, zugängliche Oberflächen mit Angular und TypeScript und suche eine Festanstellung als Frontend- oder Softwareentwickler in Frankfurt, Wiesbaden oder Mainz.',
+    lede: 'Ich entwickle mit Angular und TypeScript, wohne in Mainz-Kastel und suche eine Festanstellung im Rhein-Main-Gebiet.',
     primaryCta: 'Projekte ansehen',
     secondaryCta: 'Kontakt',
     dossierLabel: 'Kurzprofil',
@@ -32,7 +32,7 @@ const de = {
   about: {
     metaTitle: 'Über mich · Sontek Daniel Cho',
     metaDescription:
-      'Hintergrund, Studium der Wirtschaftsinformatik und Kenntnisse in Angular und TypeScript.',
+      'Wirtschaftsinformatik (B.Sc.), BMW Group, Nintendo Europe und Angular mit TypeScript.',
     title: 'Über mich',
     backgroundTitle: 'Hintergrund',
     educationTitle: 'Studium',
@@ -57,15 +57,12 @@ const de = {
   contact: {
     metaTitle: 'Kontakt · Sontek Daniel Cho',
     metaDescription:
-      'Kontakt zu Sontek Daniel Cho für eine Festanstellung als Frontend-Entwickler im Rhein-Main-Gebiet.',
+      'E-Mail und LinkedIn von Sontek Daniel Cho, Frontend-Entwickler in Mainz-Kastel.',
     title: 'Kontakt',
-    intro:
-      'Für eine Festanstellung als Frontend- oder Softwareentwickler im Rhein-Main-Gebiet.',
+    intro: 'Am besten per E-Mail oder LinkedIn.',
     email: 'E-Mail',
     linkedin: 'LinkedIn',
     github: 'GitHub',
-    cv: 'Lebenslauf herunterladen',
-    cvNote: 'Platzhalter-PDF. Die finale Datei ersetzt',
   },
   notFound: {
     metaTitle: 'Seite nicht gefunden · Sontek Daniel Cho',
@@ -76,7 +73,7 @@ const de = {
   },
   footer: {
     navLabel: 'Fußnavigation',
-    blurb: 'Frontend-Entwickler · Angular & TypeScript · Rhein-Main',
+    blurb: 'Frontend-Entwickler · Angular & TypeScript · Mainz-Kastel',
   },
 };
 
@@ -100,11 +97,11 @@ export const translations = {
     home: {
       metaTitle: 'Sontek Daniel Cho · Frontend Developer',
       metaDescription:
-        'Frontend developer focused on Angular and TypeScript in the Rhein-Main area. Portfolio of Sontek Daniel Cho.',
-      kicker: 'Rhein-Main · Frankfurt, Wiesbaden, Mainz',
-      role: 'Frontend Developer',
+        'Frontend and software developer for Angular and TypeScript, based in Mainz-Kastel. Portfolio of Sontek Daniel Cho.',
+      kicker: 'Mainz-Kastel · Rhein-Main',
+      role: 'Frontend Developer / Software Developer',
       focus: 'Angular & TypeScript',
-      lede: 'I build clear, accessible interfaces with Angular and TypeScript, and I am looking for a permanent frontend or software developer role in Frankfurt, Wiesbaden, or Mainz.',
+      lede: 'I build with Angular and TypeScript, live in Mainz-Kastel, and I am looking for a permanent role in the Rhein-Main area.',
       primaryCta: 'View projects',
       secondaryCta: 'Contact',
       dossierLabel: 'Profile',
@@ -114,7 +111,7 @@ export const translations = {
     about: {
       metaTitle: 'About · Sontek Daniel Cho',
       metaDescription:
-        'Background, a bachelor’s degree in Wirtschaftsinformatik, and skills in Angular and TypeScript.',
+        'B.Sc. Wirtschaftsinformatik, BMW Group, Nintendo Europe, and Angular with TypeScript.',
       title: 'About',
       backgroundTitle: 'Background',
       educationTitle: 'Education',
@@ -139,14 +136,12 @@ export const translations = {
     contact: {
       metaTitle: 'Contact · Sontek Daniel Cho',
       metaDescription:
-        'Contact Sontek Daniel Cho about a permanent frontend developer role in the Rhein-Main area.',
+        'Email and LinkedIn for Sontek Daniel Cho, frontend developer in Mainz-Kastel.',
       title: 'Contact',
-      intro: 'For a permanent frontend or software developer role in the Rhein-Main area.',
+      intro: 'Email or LinkedIn is the best way to reach me.',
       email: 'Email',
       linkedin: 'LinkedIn',
       github: 'GitHub',
-      cv: 'Download CV',
-      cvNote: 'Placeholder PDF. Replace it with the final file at',
     },
     notFound: {
       metaTitle: 'Page not found · Sontek Daniel Cho',
@@ -157,7 +152,7 @@ export const translations = {
     },
     footer: {
       navLabel: 'Footer',
-      blurb: 'Frontend developer · Angular & TypeScript · Rhein-Main',
+      blurb: 'Frontend developer · Angular & TypeScript · Mainz-Kastel',
     },
   },
 } satisfies Record<Locale, typeof de>;

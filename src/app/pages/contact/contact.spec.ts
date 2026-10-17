@@ -8,14 +8,16 @@ describe('Contact', () => {
     }).compileComponents();
   });
 
-  it('links GitHub and the CV placeholder', async () => {
+  it('links email, LinkedIn, and GitHub', async () => {
     const fixture = TestBed.createComponent(Contact);
     await fixture.whenStable();
     const element = fixture.nativeElement as HTMLElement;
-    const github = element.querySelector('a[href="https://github.com/ch0sn"]');
-    const cv = element.querySelector('a[href="/cv/sontek-daniel-cho-cv.pdf"]');
-    expect(github).toBeTruthy();
-    expect(cv).toBeTruthy();
-    expect(element.textContent).toContain('public/cv/sontek-daniel-cho-cv.pdf');
+    expect(element.querySelector('a[href="mailto:sontekdaniel@hotmail.com"]')).toBeTruthy();
+    expect(
+      element.querySelector('a[href="https://www.linkedin.com/in/sontek-daniel-cho-548243149"]'),
+    ).toBeTruthy();
+    expect(element.querySelector('a[href="https://github.com/ch0sn"]')).toBeTruthy();
+    expect(element.querySelector('a[download]')).toBeNull();
+    expect(element.textContent).not.toContain('Lebenslauf');
   });
 });

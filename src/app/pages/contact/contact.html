@@ -17,7 +17,7 @@
       <a class="contact-row" [href]="linkedin" target="_blank" rel="noopener noreferrer">
         <span class="contact-kicker">{{ messages().contact.linkedin }}</span>
         <span>
-          {{ messages().contact.linkedin }}
+          sontek-daniel-cho
           <span class="sr-only"> ({{ messages().projects.newTab }})</span>
         </span>
       </a>
@@ -32,17 +32,4 @@
       </span>
     </a>
   </li>
-  <li>
-    <a class="contact-row" [href]="profile.cv.href" [attr.download]="'sontek-daniel-cho-cv.pdf'">
-      <span class="contact-kicker">PDF</span>
-      <span>{{ messages().contact.cv }}</span>
-    </a>
-  </li>
 </ul>
-
-@if (profile.cv.isPlaceholder) {
-  <p class="note">
-    {{ messages().contact.cvNote }}
-    <code>{{ profile.cv.file }}</code>
-  </p>
-}

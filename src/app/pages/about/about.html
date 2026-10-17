@@ -43,7 +43,17 @@
         @if (job.period; as period) {
           <p class="period">{{ language.text(period) }}</p>
         }
+        @if (job.location; as location) {
+          <p>{{ language.text(location) }}</p>
+        }
         <p>{{ language.text(job.summary) }}</p>
+        @if (job.points.length) {
+          <ul class="plain-list">
+            @for (point of job.points; track point.de) {
+              <li>{{ language.text(point) }}</li>
+            }
+          </ul>
+        }
       </li>
     }
   </ol>
