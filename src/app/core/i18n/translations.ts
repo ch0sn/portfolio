@@ -44,7 +44,7 @@ const de = {
   projects: {
     metaTitle: 'Projekte · Sontek Daniel Cho',
     metaDescription:
-      'kin-graph, Kostenplan, GTKEO und ein Web-Technologien-Projekt aus dem Studium.',
+      'kin-graph, Kostenplan und GTKEO.',
     title: 'Projekte',
     intro: 'Eine Auswahl an Arbeiten. Beschrieben ist nur, was sich belegen lässt.',
     github: 'GitHub',
@@ -123,7 +123,7 @@ export const translations = {
     projects: {
       metaTitle: 'Projects · Sontek Daniel Cho',
       metaDescription:
-        'kin-graph, Kostenplan, GTKEO, and a university web-technologies team project.',
+        'kin-graph, Kostenplan, and GTKEO.',
       title: 'Projects',
       intro: 'A selection of work. Descriptions stay with what can be verified.',
       github: 'GitHub',

@@ -34,7 +34,6 @@ export class ProjectCard {
       case 'kin-graph':
       case 'kostenplan':
       case 'gtkeo':
-      case 'uni-web':
         return id;
       default: {
         const unknown: never = id;

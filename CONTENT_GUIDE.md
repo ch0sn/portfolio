@@ -19,5 +19,4 @@ The data file marks these with `TODO(owner)`. None of them should be invented:
 
 - Live-demo URLs and screenshots
 - A public-safe description and role for GTKEO
-- Your role on the university team project
 - Canonical site URL, once the domain is known

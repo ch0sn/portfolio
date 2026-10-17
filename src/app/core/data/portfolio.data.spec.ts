@@ -28,14 +28,12 @@ describe('portfolio data', () => {
       'kin-graph',
       'kostenplan',
       'gtkeo',
-      'uni-web',
     ]);
     const byId = new Map(portfolio.projects.map((project) => [project.id, project]));
     expect(byId.get('kin-graph')?.githubUrl).toBe('https://github.com/ch0sn/kin-graph');
     expect(byId.get('kostenplan')?.githubUrl).toBe('https://github.com/ch0sn/budget-app');
     expect(byId.get('gtkeo')?.githubUrl).toBeNull();
     expect(byId.get('gtkeo')?.role).toBeNull();
-    expect(byId.get('uni-web')?.githubUrl).toBe('https://github.com/ch0sn/Web-App-Uni-Projekt_08');
     expect(portfolio.projects.every((project) => project.liveUrl === null)).toBe(true);
     expect(portfolio.projects.every((project) => project.screenshot === null)).toBe(true);
   });

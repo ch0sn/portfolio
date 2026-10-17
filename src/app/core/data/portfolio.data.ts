@@ -7,11 +7,10 @@ import { LocalizedText } from '../i18n/localize';
  * TODO(owner): still unknown. Do not invent these.
  * - screenshots in public/projects/ and any live-demo URLs
  * - GTKEO: a public-safe description and your role
- * - your role on the university team project
  * - canonical site URL, once the domain is known
  */
 
-export type ProjectId = 'kin-graph' | 'kostenplan' | 'gtkeo' | 'uni-web';
+export type ProjectId = 'kin-graph' | 'kostenplan' | 'gtkeo';
 
 export interface Highlight {
   readonly id: string;
@@ -293,21 +292,6 @@ export const portfolio: Portfolio = {
       // TODO(owner): live demo URL, only if a public build exists.
       liveUrl: null,
       // TODO(owner): add public/projects/gtkeo.webp if a screenshot can be shown publicly.
-      screenshot: null,
-      featured: false,
-    },
-    {
-      id: 'uni-web',
-      title: 'Web-Technologien',
-      summary: {
-        de: 'Teamprojekt aus dem Studium im Bereich Web-Technologien. Enthalten sind Seiten für Start, Anmeldung, Einschreibung und Kurse, umgesetzt mit PHP und CSS.',
-        en: 'University team project in web technologies. It includes pages for a start screen, login, enrollment, and courses, built with PHP and CSS.',
-      },
-      role: { de: 'Teamprojekt', en: 'Team project' },
-      technologies: ['PHP', 'CSS'],
-      githubUrl: 'https://github.com/ch0sn/Web-App-Uni-Projekt_08',
-      // TODO(owner): your role within the team, a live demo URL, and a screenshot if you want them shown.
-      liveUrl: null,
       screenshot: null,
       featured: false,
     },
