@@ -617,6 +617,17 @@ body.lightbox-open {
   margin: 0.55rem 0 0;
 }
 
+.project-body .project-status {
+  display: inline-block;
+  margin: 0.75rem 0 0;
+  padding: 0.22rem 0.7rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
 .project-body p {
   color: var(--muted);
 }
