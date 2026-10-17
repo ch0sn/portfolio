@@ -18,7 +18,14 @@ describe('Projects', () => {
     expect(kinGraph).toBeTruthy();
     expect(element.textContent).toContain('Privates Repository');
     expect(element.textContent).toContain('Eigenes Projekt, alleine konzipiert und entwickelt');
-    expect(element.textContent).toContain('Get To Know Each Other');
+    expect(element.textContent).toContain('realQ&A');
+    expect(element.textContent).toContain('React Native');
+    expect(element.textContent).not.toContain('GTKEO');
+    expect(element.textContent).not.toContain('Live-Demo');
+    const cover = element.querySelector('.shot-open');
+    expect(cover?.getAttribute('aria-label')).toContain('vier Generationen');
+    expect(element.querySelectorAll('.shot-gallery button')).toHaveLength(3);
+    expect(element.querySelectorAll('.poster')).toHaveLength(2);
     expect(element.textContent).toContain('Flutter');
     expect(element.textContent).not.toContain('Web-Technologien');
   });

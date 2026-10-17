@@ -44,14 +44,19 @@ const de = {
   projects: {
     metaTitle: 'Projekte · Sontek Daniel Cho',
     metaDescription:
-      'kin-graph, Kostenplan und GTKEO.',
+      'kin-graph, Kostenplan und realQ&A.',
     title: 'Projekte',
     intro: 'Eine Auswahl an Arbeiten. Beschrieben ist nur, was sich belegen lässt.',
     github: 'GitHub',
     live: 'Live-Demo',
     privateRepo: 'Privates Repository',
     newTab: 'öffnet in neuem Tab',
-    shotAlt: 'Abbildung von {title}',
+    enlargeShot: 'Abbildung vergrößern',
+    galleryLabel: 'Weitere Ansichten',
+    previousShot: 'Vorherige Abbildung',
+    nextShot: 'Nächste Abbildung',
+    closeShot: 'Schließen',
+    shotPosition: '{current} von {total}',
     techLabel: 'Technologien',
   },
   contact: {
@@ -123,14 +128,19 @@ export const translations = {
     projects: {
       metaTitle: 'Projects · Sontek Daniel Cho',
       metaDescription:
-        'kin-graph, Kostenplan, and GTKEO.',
+        'kin-graph, Kostenplan, and realQ&A.',
       title: 'Projects',
       intro: 'A selection of work. Descriptions stay with what can be verified.',
       github: 'GitHub',
       live: 'Live demo',
       privateRepo: 'Private repository',
       newTab: 'opens in a new tab',
-      shotAlt: 'Screenshot of {title}',
+      enlargeShot: 'Enlarge image',
+      galleryLabel: 'More views',
+      previousShot: 'Previous image',
+      nextShot: 'Next image',
+      closeShot: 'Close',
+      shotPosition: '{current} of {total}',
       techLabel: 'Technologies',
     },
     contact: {

@@ -1,7 +1,13 @@
 <article class="project-card">
   <div class="shot">
-    @if (project().screenshot; as src) {
-      <img [src]="src" [alt]="shotAlt()" />
+    @if (coverShot(); as shot) {
+      @if (gallery()) {
+        <button type="button" class="shot-open" (click)="open(0, $event)" [attr.aria-label]="shotLabel(shot)">
+          <img [src]="shot.src" alt="" [width]="shot.width" [height]="shot.height" />
+        </button>
+      } @else {
+        <img [src]="shot.src" [alt]="language.text(shot.alt)" [width]="shot.width" [height]="shot.height" />
+      }
     } @else {
       <div class="poster" aria-hidden="true">
         @switch (cover(project().id)) {
@@ -23,7 +29,7 @@
               <rect x="48" y="142" width="96" height="16" rx="8" fill="currentColor" opacity="0.28" />
             </svg>
           }
-          @case ('gtkeo') {
+          @case ('realqa') {
             <svg viewBox="0 0 320 200" fill="none">
               <rect x="122" y="22" width="76" height="156" rx="16" stroke="currentColor" stroke-width="2" />
               <rect x="136" y="42" width="48" height="8" rx="4" fill="currentColor" opacity="0.55" />
@@ -66,5 +72,49 @@
         </a>
       }
     </div>
+    @if (gallery() && extraShots().length > 0) {
+      <ul class="shot-gallery" [attr.aria-label]="messages().projects.galleryLabel">
+        @for (shot of extraShots(); track shot.src; let index = $index) {
+          <li>
+            <button type="button" (click)="open(index + 1, $event)" [attr.aria-label]="shotLabel(shot)">
+              <img [src]="shot.src" alt="" [width]="shot.width" [height]="shot.height" />
+            </button>
+          </li>
+        }
+      </ul>
+    }
   </div>
 </article>
+@if (activeShot(); as shot) {
+  <div class="lightbox">
+    <div
+      #dialog
+      class="lightbox-dialog"
+      role="dialog"
+      aria-modal="true"
+      [attr.aria-labelledby]="'shot-caption-' + project().id"
+    >
+      <div class="lightbox-bar">
+        <p class="lightbox-count">{{ shotPosition() }}</p>
+        <button #closeButton type="button" class="lightbox-close" (click)="close()">
+          {{ messages().projects.closeShot }}
+        </button>
+      </div>
+      <img [src]="shot.src" alt="" [width]="shot.width" [height]="shot.height" />
+      <p class="lightbox-caption" [id]="'shot-caption-' + project().id">{{ language.text(shot.alt) }}</p>
+      @if (project().shots.length > 1) {
+        <div class="lightbox-nav">
+          <button type="button" (click)="step(-1)">{{ messages().projects.previousShot }}</button>
+          <button type="button" (click)="step(1)">{{ messages().projects.nextShot }}</button>
+        </div>
+      }
+    </div>
+    <button
+      type="button"
+      class="lightbox-backdrop"
+      tabindex="-1"
+      (click)="close()"
+      [attr.aria-label]="messages().projects.closeShot"
+    ></button>
+  </div>
+}

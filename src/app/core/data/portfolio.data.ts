@@ -5,11 +5,11 @@ import { LocalizedText } from '../i18n/localize';
  * UI chrome (navigation, buttons, meta labels) lives in `core/i18n/translations.ts`.
  *
  * TODO(owner): still unknown. Do not invent these.
- * - screenshots in public/projects/ and any live-demo URLs
+ * - screenshots for Kostenplan and realQ&A, under public/projects/
  * - canonical site URL, once the domain is known
  */
 
-export type ProjectId = 'kin-graph' | 'kostenplan' | 'gtkeo';
+export type ProjectId = 'kin-graph' | 'kostenplan' | 'realqa';
 
 export interface Highlight {
   readonly id: string;
@@ -41,6 +41,13 @@ export interface SkillGroup {
   readonly items: readonly string[];
 }
 
+export interface ProjectShot {
+  readonly src: string;
+  readonly width: number;
+  readonly height: number;
+  readonly alt: LocalizedText;
+}
+
 export interface Project {
   readonly id: ProjectId;
   readonly title: string;
@@ -48,9 +55,13 @@ export interface Project {
   readonly role: LocalizedText | null;
   readonly technologies: readonly string[];
   readonly githubUrl: string | null;
+  /** Public demo. Omitted from the card when null. */
   readonly liveUrl: string | null;
-  /** Public path. TODO(owner): add the file under public/ and set this. */
-  readonly screenshot: string | null;
+  /**
+   * Screenshots in gallery order. The first image is the card cover.
+   * An empty list keeps the drawn cover.
+   */
+  readonly shots: readonly ProjectShot[];
   readonly featured: boolean;
 }
 
@@ -255,10 +266,45 @@ export const portfolio: Portfolio = {
       role: { de: 'Open-Source-Projekt', en: 'Open-source project' },
       technologies: ['TypeScript', 'React', 'Vite', 'PWA'],
       githubUrl: 'https://github.com/ch0sn/kin-graph',
-      // TODO(owner): live demo URL, if there is a public deployment.
       liveUrl: null,
-      // TODO(owner): add public/projects/kin-graph.webp and set screenshot to '/projects/kin-graph.webp'.
-      screenshot: null,
+      shots: [
+        {
+          src: '/projects/kin-graph/kin-graph-1.webp',
+          width: 1440,
+          height: 900,
+          alt: {
+            de: 'kin-graph auf dem Desktop: Stammbaum über vier Generationen in der Baumansicht. Die angezeigten Personen sind Beispieldaten.',
+            en: 'kin-graph on desktop: a four-generation family tree in the tree view. The people shown are sample data.',
+          },
+        },
+        {
+          src: '/projects/kin-graph/kin-graph-2.webp',
+          width: 1440,
+          height: 900,
+          alt: {
+            de: 'kin-graph auf dem Desktop: Detailansicht einer Person mit Zeitstrahl der Lebensereignisse. Die Angaben sind Beispieldaten.',
+            en: 'kin-graph on desktop: a person detail sheet with a timeline of life events. The details are sample data.',
+          },
+        },
+        {
+          src: '/projects/kin-graph/kin-graph-3.webp',
+          width: 1440,
+          height: 900,
+          alt: {
+            de: 'kin-graph auf dem Desktop: Formular zum Bearbeiten der Personendaten. Die Einträge sind Beispieldaten.',
+            en: 'kin-graph on desktop: the form for editing a person’s details. The entries are sample data.',
+          },
+        },
+        {
+          src: '/projects/kin-graph/kin-graph-4.webp',
+          width: 390,
+          height: 844,
+          alt: {
+            de: 'kin-graph auf dem Smartphone: Baumansicht eines Stammbaums. Die angezeigten Personen sind Beispieldaten.',
+            en: 'kin-graph on a phone: the tree view of a family tree. The people shown are sample data.',
+          },
+        },
+      ],
       featured: true,
     },
     {
@@ -271,29 +317,27 @@ export const portfolio: Portfolio = {
       role: { de: 'Eigenes Projekt', en: 'Personal project' },
       technologies: ['Flutter', 'Android', 'Web'],
       githubUrl: 'https://github.com/ch0sn/budget-app',
-      // TODO(owner): live demo URL, if the web build is public.
       liveUrl: null,
-      // TODO(owner): add public/projects/kostenplan.webp and set screenshot to '/projects/kostenplan.webp'.
-      screenshot: null,
+      // TODO(owner): screenshots under public/projects/kostenplan/.
+      shots: [],
       featured: true,
     },
     {
-      id: 'gtkeo',
-      title: 'GTKEO',
+      id: 'realqa',
+      title: 'realQ&A',
       summary: {
-        de: 'GTKEO steht für „Get To Know Each Other“: eine mobile App, in der Paare einander Fragen aus verschiedenen Kategorien stellen, um sich besser kennenzulernen. Geschrieben in TypeScript; das Repository ist privat.',
-        en: 'GTKEO stands for “Get To Know Each Other”: a mobile app where couples ask each other questions across different categories to get to know each other better. Written in TypeScript; the repository is private.',
+        de: 'realQ&A ist eine iOS-App, in der Menschen durchdachte Fragen beantworten: allein, mit Freundinnen und Freunden oder als Paar, über verschiedene Tiefenstufen hinweg, um sich besser kennenzulernen.',
+        en: 'realQ&A is an iOS app where people answer thoughtful questions together: solo, with friends, or as a couple, across different depth levels, to get to know each other better.',
       },
       role: {
         de: 'Eigenes Projekt, alleine konzipiert und entwickelt',
         en: 'Solo project, designed and built on my own',
       },
-      technologies: ['TypeScript'],
+      technologies: ['React Native', 'Expo', 'TypeScript', 'iOS'],
       githubUrl: null,
-      // TODO(owner): live demo URL, only if a public build exists.
       liveUrl: null,
-      // TODO(owner): add public/projects/gtkeo.webp if a screenshot can be shown publicly.
-      screenshot: null,
+      // TODO(owner): screenshots under public/projects/realqa/.
+      shots: [],
       featured: false,
     },
   ],

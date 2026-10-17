@@ -11,11 +11,13 @@ German strings are the `de` fields. English strings are the `en` fields. Keep bo
 
 ## Screenshots
 
-Drop an image in `public/projects/` and set the project's `screenshot` field to the public path, for example `/projects/kin-graph.webp`. Until then the card shows a drawn cover.
+Put images in `public/projects/<project-id>/` and list them on the project's `shots` array. The first image is the card cover. Any further images become the gallery on the Projects page. Each shot needs German and English alt text. An empty `shots` array keeps the drawn cover.
+
+There is no live demo. Leave `liveUrl` as `null` and the card hides that link.
 
 ## Still open
 
 The data file marks these with `TODO(owner)`. None of them should be invented:
 
-- Live-demo URLs and screenshots
+- Screenshots for Kostenplan and realQ&A
 - Canonical site URL, once the domain is known

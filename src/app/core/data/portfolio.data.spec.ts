@@ -23,20 +23,36 @@ describe('portfolio data', () => {
     expect(serialized).not.toContain('Java EE');
   });
 
-  it('lists the four known projects without invented links', () => {
+  it('lists the known projects without invented links', () => {
     expect(portfolio.projects.map((project) => project.id)).toEqual([
       'kin-graph',
       'kostenplan',
-      'gtkeo',
+      'realqa',
     ]);
     const byId = new Map(portfolio.projects.map((project) => [project.id, project]));
     expect(byId.get('kin-graph')?.githubUrl).toBe('https://github.com/ch0sn/kin-graph');
     expect(byId.get('kostenplan')?.githubUrl).toBe('https://github.com/ch0sn/budget-app');
-    expect(byId.get('gtkeo')?.githubUrl).toBeNull();
-    expect(byId.get('gtkeo')?.role?.de).toBe('Eigenes Projekt, alleine konzipiert und entwickelt');
-    expect(byId.get('gtkeo')?.role?.en).toBe('Solo project, designed and built on my own');
-    expect(byId.get('gtkeo')?.summary.de).toContain('Get To Know Each Other');
+    const realQa = byId.get('realqa');
+    expect(realQa?.title).toBe('realQ&A');
+    expect(realQa?.githubUrl).toBeNull();
+    expect(realQa?.role?.de).toBe('Eigenes Projekt, alleine konzipiert und entwickelt');
+    expect(realQa?.role?.en).toBe('Solo project, designed and built on my own');
+    expect(realQa?.technologies).toEqual(['React Native', 'Expo', 'TypeScript', 'iOS']);
+    expect(realQa?.summary.de).toContain('Tiefenstufen');
+    expect(realQa?.summary.en).toContain('depth levels');
     expect(portfolio.projects.every((project) => project.liveUrl === null)).toBe(true);
-    expect(portfolio.projects.every((project) => project.screenshot === null)).toBe(true);
+    const kinGraph = byId.get('kin-graph');
+    expect(kinGraph?.shots.map((shot) => shot.src)).toEqual([
+      '/projects/kin-graph/kin-graph-1.webp',
+      '/projects/kin-graph/kin-graph-2.webp',
+      '/projects/kin-graph/kin-graph-3.webp',
+      '/projects/kin-graph/kin-graph-4.webp',
+    ]);
+    expect(kinGraph?.shots.every((shot) => shot.alt.de.includes('Beispieldaten'))).toBe(true);
+    expect(kinGraph?.shots.every((shot) => shot.alt.en.includes('sample data'))).toBe(true);
+    expect(byId.get('kostenplan')?.shots).toEqual([]);
+    expect(realQa?.shots).toEqual([]);
+    expect(serialized).not.toContain('GTKEO');
+    expect(serialized).not.toContain('gtkeo');
   });
 });
