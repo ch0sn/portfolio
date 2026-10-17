@@ -5,7 +5,7 @@ import { LocalizedText } from '../i18n/localize';
  * UI chrome (navigation, buttons, meta labels) lives in `core/i18n/translations.ts`.
  *
  * TODO(owner): still unknown. Do not invent these.
- * - screenshots for Kostenplan and realQ&A, under public/projects/
+ * - desktop web screenshots for Kostenplan, under public/projects/kostenplan/
  * - canonical site URL, once the domain is known
  */
 
@@ -53,6 +53,8 @@ export interface Project {
   readonly title: string;
   readonly summary: LocalizedText;
   readonly role: LocalizedText | null;
+  /** Short status badge. Null when the project has no status to show. */
+  readonly status: LocalizedText | null;
   readonly technologies: readonly string[];
   readonly githubUrl: string | null;
   /** Public demo. Omitted from the card when null. */
@@ -264,6 +266,7 @@ export const portfolio: Portfolio = {
         en: 'Open-source genealogy web app with node-based interaction, a tree view, a timeline, and PWA support. The frontend is written in TypeScript (React, Vite); the tree stays on the device.',
       },
       role: { de: 'Open-Source-Projekt', en: 'Open-source project' },
+      status: null,
       technologies: ['TypeScript', 'React', 'Vite', 'PWA'],
       githubUrl: 'https://github.com/ch0sn/kin-graph',
       liveUrl: null,
@@ -311,14 +314,15 @@ export const portfolio: Portfolio = {
       id: 'kostenplan',
       title: 'Kostenplan',
       summary: {
-        de: 'Budget-App für Android und das Web, gebaut mit Flutter.',
-        en: 'Budget app for Android and the web, built with Flutter.',
+        de: 'Budget-Web-App, gebaut mit Flutter. Die Web-Version ist die weiter entwickelte Fassung; die Android-App ist noch in Entwicklung.',
+        en: 'Budget web app built with Flutter. The web version is the more developed one; the Android app is still in development.',
       },
       role: { de: 'Eigenes Projekt', en: 'Personal project' },
-      technologies: ['Flutter', 'Android', 'Web'],
+      status: { de: 'Mobile-App in Entwicklung', en: 'Mobile app in development' },
+      technologies: ['Flutter', 'Web'],
       githubUrl: 'https://github.com/ch0sn/budget-app',
       liveUrl: null,
-      // TODO(owner): screenshots under public/projects/kostenplan/.
+      // TODO(owner): desktop web screenshots under public/projects/kostenplan/.
       shots: [],
       featured: true,
     },
@@ -333,11 +337,48 @@ export const portfolio: Portfolio = {
         de: 'Eigenes Projekt, alleine konzipiert und entwickelt',
         en: 'Solo project, designed and built on my own',
       },
-      technologies: ['React Native', 'Expo', 'TypeScript', 'iOS'],
+      status: null,
+      technologies: ['TypeScript', 'React Native', 'Expo', 'iOS'],
       githubUrl: null,
       liveUrl: null,
-      // TODO(owner): screenshots under public/projects/realqa/.
-      shots: [],
+      shots: [
+        {
+          src: '/projects/realqa/realqa-1.webp',
+          width: 390,
+          height: 844,
+          alt: {
+            de: 'realQ&A auf dem iPhone: Startbildschirm mit den Räumen Solo, Friends und Couple. Die angezeigten Inhalte sind Beispieldaten.',
+            en: 'realQ&A on iPhone: the home screen with the Solo, Friends, and Couple rooms. The content shown is sample data.',
+          },
+        },
+        {
+          src: '/projects/realqa/realqa-2.webp',
+          width: 390,
+          height: 844,
+          alt: {
+            de: 'realQ&A auf dem iPhone: Auswahl von Tiefe und Kategorie im Couple-Raum, darunter Light, Everyday, Story, Us, Faith und Random. Die Einträge sind Beispieldaten.',
+            en: 'realQ&A on iPhone: depth and category selection in the Couple room, including Light, Everyday, Story, Us, Faith, and Random. The entries are sample data.',
+          },
+        },
+        {
+          src: '/projects/realqa/realqa-3.webp',
+          width: 390,
+          height: 844,
+          alt: {
+            de: 'realQ&A auf dem iPhone: eine Fragekarte während des Spiels. Die angezeigte Frage besteht aus Beispieldaten.',
+            en: 'realQ&A on iPhone: a question card in play. The question is sample data.',
+          },
+        },
+        {
+          src: '/projects/realqa/realqa-4.webp',
+          width: 390,
+          height: 844,
+          alt: {
+            de: 'realQ&A auf dem iPhone: Rückblick mit aufgeschriebenen Antworten. Die Antworten sind Beispieldaten.',
+            en: 'realQ&A on iPhone: the review screen with written answers. The answers are sample data.',
+          },
+        },
+      ],
       featured: false,
     },
   ],

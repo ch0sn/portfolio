@@ -50,6 +50,9 @@
     @if (project().role; as role) {
       <p class="project-role">{{ language.text(role) }}</p>
     }
+    @if (project().status; as status) {
+      <p class="project-status">{{ language.text(status) }}</p>
+    }
     <p>{{ language.text(project().summary) }}</p>
     <ul class="tags" [attr.aria-label]="messages().projects.techLabel">
       @for (tech of project().technologies; track tech) {

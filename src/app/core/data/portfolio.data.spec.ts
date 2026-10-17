@@ -37,7 +37,7 @@ describe('portfolio data', () => {
     expect(realQa?.githubUrl).toBeNull();
     expect(realQa?.role?.de).toBe('Eigenes Projekt, alleine konzipiert und entwickelt');
     expect(realQa?.role?.en).toBe('Solo project, designed and built on my own');
-    expect(realQa?.technologies).toEqual(['React Native', 'Expo', 'TypeScript', 'iOS']);
+    expect(realQa?.technologies).toEqual(['TypeScript', 'React Native', 'Expo', 'iOS']);
     expect(realQa?.summary.de).toContain('Tiefenstufen');
     expect(realQa?.summary.en).toContain('depth levels');
     expect(portfolio.projects.every((project) => project.liveUrl === null)).toBe(true);
@@ -50,8 +50,20 @@ describe('portfolio data', () => {
     ]);
     expect(kinGraph?.shots.every((shot) => shot.alt.de.includes('Beispieldaten'))).toBe(true);
     expect(kinGraph?.shots.every((shot) => shot.alt.en.includes('sample data'))).toBe(true);
-    expect(byId.get('kostenplan')?.shots).toEqual([]);
-    expect(realQa?.shots).toEqual([]);
+    const kostenplan = byId.get('kostenplan');
+    expect(kostenplan?.technologies).toEqual(['Flutter', 'Web']);
+    expect(kostenplan?.status?.de).toBe('Mobile-App in Entwicklung');
+    expect(kostenplan?.status?.en).toBe('Mobile app in development');
+    expect(kostenplan?.summary.en).toContain('web version');
+    expect(kostenplan?.shots).toEqual([]);
+    expect(realQa?.shots.map((shot) => shot.src)).toEqual([
+      '/projects/realqa/realqa-1.webp',
+      '/projects/realqa/realqa-2.webp',
+      '/projects/realqa/realqa-3.webp',
+      '/projects/realqa/realqa-4.webp',
+    ]);
+    expect(realQa?.shots.every((shot) => shot.alt.de.includes('Beispieldaten'))).toBe(true);
+    expect(realQa?.shots.every((shot) => shot.alt.en.includes('sample data'))).toBe(true);
     expect(serialized).not.toContain('GTKEO');
     expect(serialized).not.toContain('gtkeo');
   });
