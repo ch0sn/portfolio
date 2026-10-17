@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <title>Sontek Daniel Cho · Frontend-Entwickler</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Frontend-Entwickler und Softwareentwickler für Angular und TypeScript in Mainz-Kastel. Portfolio von Sontek Daniel Cho."
+    />
+    <meta name="theme-color" content="#efeae2" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="Sontek Daniel Cho · Frontend-Entwickler" />
+    <meta
+      property="og:description"
+      content="Frontend-Entwickler und Softwareentwickler für Angular und TypeScript in Mainz-Kastel. Portfolio von Sontek Daniel Cho."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_DE" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,560;0,9..144,640;1,9..144,520&family=IBM+Plex+Mono:wght@400&family=Outfit:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('portfolio.theme');
+          var theme =
+            stored === 'light' || stored === 'dark'
+              ? stored
+              : window.matchMedia('(prefers-color-scheme: dark)').matches
+                ? 'dark'
+                : 'light';
+          document.documentElement.dataset.theme = theme;
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) meta.setAttribute('content', theme === 'dark' ? '#12110f' : '#efeae2');
+        } catch (error) {
+          /* Storage or matchMedia can be unavailable. The CSS default still applies. */
+        }
+      })();
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Sontek Daniel Cho",
+        "jobTitle": "Frontend Developer",
+        "email": "mailto:sontekdaniel@hotmail.com",
+        "description": "Frontend and software developer for Angular and TypeScript, based in Mainz-Kastel.",
+        "homeLocation": { "@type": "Place", "name": "Mainz-Kastel" },
+        "knowsAbout": ["Angular", "TypeScript", "JavaScript", "HTML", "CSS"],
+        "knowsLanguage": ["de", "ko", "en"],
+        "sameAs": [
+          "https://github.com/ch0sn",
+          "https://www.linkedin.com/in/sontek-daniel-cho-548243149"
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <app-root></app-root>
+  </body>
+</html>

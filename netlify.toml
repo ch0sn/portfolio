@@ -1,5 +1,13 @@
 [build]
   command = "npm run build"
+  publish = "dist/portfolio/browser"
 
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
+[build.environment]
+  NODE_VERSION = "22.23.3"
+
+# Prerendered routes are real files. Anything else falls back to the shell
+# so the client router can show the not-found page.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

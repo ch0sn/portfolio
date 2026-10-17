@@ -1,0 +1,36 @@
+<section class="hero">
+  <div class="hero-copy">
+    <p class="kicker">{{ messages().home.kicker }}</p>
+    <h1>{{ profile.name }}</h1>
+    <p class="role">{{ messages().home.role }}</p>
+    <p class="focus">{{ messages().home.focus }}</p>
+    <p class="lede">{{ messages().home.lede }}</p>
+    <div class="actions">
+      <a class="button" routerLink="/projects">{{ messages().home.primaryCta }}</a>
+      <a class="button button-ghost" routerLink="/contact">{{ messages().home.secondaryCta }}</a>
+    </div>
+  </div>
+  <aside class="dossier">
+    <h2>{{ messages().home.dossierLabel }}</h2>
+    <dl>
+      @for (item of profile.highlights; track item.id) {
+        <div>
+          <dt>{{ language.text(item.label) }}</dt>
+          <dd>{{ language.text(item.value) }}</dd>
+        </div>
+      }
+    </dl>
+  </aside>
+</section>
+
+<section class="band" [attr.aria-labelledby]="'featured-heading'">
+  <div class="section-head">
+    <h2 id="featured-heading">{{ messages().home.featuredTitle }}</h2>
+    <a routerLink="/projects">{{ messages().home.featuredLink }}</a>
+  </div>
+  <div class="stack">
+    @for (project of featured; track project.id) {
+      <app-project-card [project]="project" level="h3" />
+    }
+  </div>
+</section>

@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sontek Daniel Cho — Portfolio
 
-## Getting Started
+Personal portfolio for frontend and software developer roles in the Rhein-Main area. The site is an Angular application: standalone components, lazy-loaded routes, signals for language and theme, and prerendered HTML for the public pages.
 
-First, run the development server:
+German is the default language. English is available from the language switch.
+
+## Stack
+
+- Angular 22 (standalone, zoneless, static prerender)
+- TypeScript
+- Vitest via `ng test`
+- ESLint via `ng lint`
+- Node.js `^22.22.3`, `^24.15.0`, or `>=26` (see `.nvmrc`)
+
+## Run
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:4200.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Test and lint
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm test
+npm run lint
+```
 
-## Learn More
+## Build
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The static site is written to `dist/portfolio/browser`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deploy
 
-## Deploy on Vercel
+Netlify runs `npm run build` and publishes `dist/portfolio/browser`. `netlify.toml` sets the Node version and rewrites unknown paths to `index.html` so the client router can show the not-found page. Known routes are prerendered.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Edit content
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Facts, projects, education, and links live in one typed file:
+
+`src/app/core/data/portfolio.data.ts`
+
+Navigation labels, page chrome, and meta descriptions live in:
+
+`src/app/core/i18n/translations.ts`
+
+Search the data file for `TODO(owner)` before publishing missing project details.
+
+See `CONTENT_GUIDE.md` for the same map in shorter form.

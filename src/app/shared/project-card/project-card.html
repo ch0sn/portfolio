@@ -1,0 +1,130 @@
+<article class="project-card">
+  <div class="shot">
+    @if (coverShot(); as shot) {
+      @if (gallery()) {
+        <button type="button" class="shot-open" (click)="open(0, $event)" [attr.aria-label]="shotLabel(shot)">
+          <img [src]="shot.src" alt="" [width]="shot.width" [height]="shot.height" />
+        </button>
+      } @else {
+        <img [src]="shot.src" [alt]="language.text(shot.alt)" [width]="shot.width" [height]="shot.height" />
+      }
+    } @else {
+      <div class="poster" aria-hidden="true">
+        @switch (cover(project().id)) {
+          @case ('kin-graph') {
+            <svg viewBox="0 0 320 200" fill="none">
+              <path d="M64 124C108 36 176 40 214 104" stroke="currentColor" stroke-width="1.6" />
+              <path d="M214 104C246 156 286 78 292 46" stroke="currentColor" stroke-width="1.6" opacity="0.65" />
+              <circle cx="64" cy="124" r="16" fill="currentColor" />
+              <circle cx="214" cy="104" r="11" stroke="currentColor" stroke-width="1.6" />
+              <circle cx="248" cy="154" r="7" stroke="currentColor" stroke-width="1.6" />
+              <circle cx="292" cy="46" r="5" fill="currentColor" />
+            </svg>
+          }
+          @case ('kostenplan') {
+            <svg viewBox="0 0 320 200" fill="none">
+              <rect x="48" y="46" width="196" height="16" rx="8" fill="currentColor" />
+              <rect x="48" y="78" width="132" height="16" rx="8" fill="currentColor" opacity="0.72" />
+              <rect x="48" y="110" width="220" height="16" rx="8" fill="currentColor" opacity="0.48" />
+              <rect x="48" y="142" width="96" height="16" rx="8" fill="currentColor" opacity="0.28" />
+            </svg>
+          }
+          @case ('realqa') {
+            <svg viewBox="0 0 320 200" fill="none">
+              <rect x="122" y="22" width="76" height="156" rx="16" stroke="currentColor" stroke-width="2" />
+              <rect x="136" y="42" width="48" height="8" rx="4" fill="currentColor" opacity="0.55" />
+              <rect x="136" y="62" width="48" height="40" rx="6" fill="currentColor" opacity="0.22" />
+              <circle cx="160" cy="156" r="5" stroke="currentColor" stroke-width="1.6" />
+            </svg>
+          }
+        }
+      </div>
+    }
+  </div>
+  <div class="project-body">
+    <div class="project-heading">
+      @if (project().logo; as logo) {
+        <img class="project-logo" [src]="logo" [alt]="logoAlt()" width="56" height="56" />
+      }
+      <div class="project-heading-copy">
+        @if (isSubheading()) {
+          <h3 class="project-title">{{ project().title }}</h3>
+        } @else {
+          <h2 class="project-title">{{ project().title }}</h2>
+        }
+        @if (project().role; as role) {
+          <p class="project-role">{{ language.text(role) }}</p>
+        }
+        @if (project().status; as status) {
+          <p class="project-status">{{ language.text(status) }}</p>
+        }
+      </div>
+    </div>
+    <p>{{ language.text(project().summary) }}</p>
+    <ul class="tags" [attr.aria-label]="messages().projects.techLabel">
+      @for (tech of project().technologies; track tech) {
+        <li>{{ tech }}</li>
+      }
+    </ul>
+    <div class="project-links">
+      @if (project().githubUrl; as github) {
+        <a [href]="github" target="_blank" rel="noopener noreferrer">
+          {{ messages().projects.github }}
+          <span class="sr-only"> ({{ messages().projects.newTab }})</span>
+        </a>
+      } @else {
+        <span class="private">{{ messages().projects.privateRepo }}</span>
+      }
+      @if (project().liveUrl; as live) {
+        <a [href]="live" target="_blank" rel="noopener noreferrer">
+          {{ messages().projects.live }}
+          <span class="sr-only"> ({{ messages().projects.newTab }})</span>
+        </a>
+      }
+    </div>
+    @if (gallery() && extraShots().length > 0) {
+      <ul class="shot-gallery" [attr.aria-label]="messages().projects.galleryLabel">
+        @for (shot of extraShots(); track shot.src; let index = $index) {
+          <li>
+            <button type="button" (click)="open(index + 1, $event)" [attr.aria-label]="shotLabel(shot)">
+              <img [src]="shot.src" alt="" [width]="shot.width" [height]="shot.height" />
+            </button>
+          </li>
+        }
+      </ul>
+    }
+  </div>
+</article>
+@if (activeShot(); as shot) {
+  <div class="lightbox">
+    <div
+      #dialog
+      class="lightbox-dialog"
+      role="dialog"
+      aria-modal="true"
+      [attr.aria-labelledby]="'shot-caption-' + project().id"
+    >
+      <div class="lightbox-bar">
+        <p class="lightbox-count">{{ shotPosition() }}</p>
+        <button #closeButton type="button" class="lightbox-close" (click)="close()">
+          {{ messages().projects.closeShot }}
+        </button>
+      </div>
+      <img [src]="shot.src" alt="" [width]="shot.width" [height]="shot.height" />
+      <p class="lightbox-caption" [id]="'shot-caption-' + project().id">{{ language.text(shot.alt) }}</p>
+      @if (project().shots.length > 1) {
+        <div class="lightbox-nav">
+          <button type="button" (click)="step(-1)">{{ messages().projects.previousShot }}</button>
+          <button type="button" (click)="step(1)">{{ messages().projects.nextShot }}</button>
+        </div>
+      }
+    </div>
+    <button
+      type="button"
+      class="lightbox-backdrop"
+      tabindex="-1"
+      (click)="close()"
+      [attr.aria-label]="messages().projects.closeShot"
+    ></button>
+  </div>
+}

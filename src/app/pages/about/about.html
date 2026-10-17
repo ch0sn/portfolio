@@ -1,0 +1,89 @@
+<header class="page-intro">
+  <h1>{{ messages().about.title }}</h1>
+</header>
+
+<section class="prose" [attr.aria-labelledby]="'background-heading'">
+  <h2 id="background-heading">{{ messages().about.backgroundTitle }}</h2>
+  @for (paragraph of profile.bio; track paragraph.de) {
+    <p>{{ language.text(paragraph) }}</p>
+  }
+  <p>
+    <a [href]="profile.github" target="_blank" rel="noopener noreferrer">
+      {{ messages().contact.github }}
+      <span class="sr-only"> ({{ messages().projects.newTab }})</span>
+    </a>
+  </p>
+</section>
+
+<section class="prose" [attr.aria-labelledby]="'education-heading'">
+  <h2 id="education-heading">{{ messages().about.educationTitle }}</h2>
+  <ol class="timeline">
+    @for (item of profile.education; track item.id) {
+      <li>
+        <p class="period">{{ language.text(item.period) }}</p>
+        <h3>{{ language.text(item.program) }}</h3>
+        <p>{{ language.text(item.institution) }}</p>
+        @if (item.note; as note) {
+          <p>{{ language.text(note) }}</p>
+        }
+      </li>
+    }
+  </ol>
+</section>
+
+<section class="prose" [attr.aria-labelledby]="'experience-heading'">
+  <h2 id="experience-heading">{{ messages().about.experienceTitle }}</h2>
+  <ol class="timeline">
+    @for (job of profile.experience; track job.id) {
+      <li>
+        <h3>{{ job.organization }}</h3>
+        @if (job.role; as role) {
+          <p>{{ language.text(role) }}</p>
+        }
+        @if (job.period; as period) {
+          <p class="period">{{ language.text(period) }}</p>
+        }
+        @if (job.location; as location) {
+          <p>{{ language.text(location) }}</p>
+        }
+        <p>{{ language.text(job.summary) }}</p>
+        @if (job.points.length) {
+          <ul class="plain-list">
+            @for (point of job.points; track point.de) {
+              <li>{{ language.text(point) }}</li>
+            }
+          </ul>
+        }
+      </li>
+    }
+  </ol>
+</section>
+
+<section class="prose" [attr.aria-labelledby]="'skills-heading'">
+  <h2 id="skills-heading">{{ messages().about.skillsTitle }}</h2>
+  <div class="skill-groups">
+    @for (group of profile.skills; track group.id) {
+      <section>
+        <h3>{{ language.text(group.label) }}</h3>
+        <ul class="tags">
+          @for (item of group.items; track item) {
+            <li>{{ item }}</li>
+          }
+        </ul>
+      </section>
+    }
+  </div>
+  <h3>{{ messages().about.practiceTitle }}</h3>
+  <ul class="plain-list">
+    @for (practice of profile.practices; track practice.de) {
+      <li>{{ language.text(practice) }}</li>
+    }
+  </ul>
+</section>
+
+<section class="prose" [attr.aria-labelledby]="'looking-heading'">
+  <h2 id="looking-heading">{{ messages().about.lookingTitle }}</h2>
+  @for (paragraph of profile.lookingFor; track paragraph.de) {
+    <p>{{ language.text(paragraph) }}</p>
+  }
+</section>
