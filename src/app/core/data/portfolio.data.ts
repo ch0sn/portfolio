@@ -6,7 +6,6 @@ import { LocalizedText } from '../i18n/localize';
  *
  * TODO(owner): still unknown. Do not invent these.
  * - screenshots in public/projects/ and any live-demo URLs
- * - GTKEO: a public-safe description and your role
  * - canonical site URL, once the domain is known
  */
 
@@ -282,11 +281,13 @@ export const portfolio: Portfolio = {
       id: 'gtkeo',
       title: 'GTKEO',
       summary: {
-        de: 'Mobile App, umgesetzt mit TypeScript. Das Repository ist privat.',
-        en: 'Mobile app built with TypeScript. The repository is private.',
+        de: 'GTKEO steht für „Get To Know Each Other“: eine mobile App, in der Paare einander Fragen aus verschiedenen Kategorien stellen, um sich besser kennenzulernen. Geschrieben in TypeScript; das Repository ist privat.',
+        en: 'GTKEO stands for “Get To Know Each Other”: a mobile app where couples ask each other questions across different categories to get to know each other better. Written in TypeScript; the repository is private.',
       },
-      // TODO(owner): your role, and a public-safe description of what the app does.
-      role: null,
+      role: {
+        de: 'Eigenes Projekt, alleine konzipiert und entwickelt',
+        en: 'Solo project, designed and built on my own',
+      },
       technologies: ['TypeScript'],
       githubUrl: null,
       // TODO(owner): live demo URL, only if a public build exists.

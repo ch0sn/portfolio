@@ -17,6 +17,8 @@ describe('Projects', () => {
     const kinGraph = element.querySelector('a[href="https://github.com/ch0sn/kin-graph"]');
     expect(kinGraph).toBeTruthy();
     expect(element.textContent).toContain('Privates Repository');
+    expect(element.textContent).toContain('Eigenes Projekt, alleine konzipiert und entwickelt');
+    expect(element.textContent).toContain('Get To Know Each Other');
     expect(element.textContent).toContain('Flutter');
     expect(element.textContent).not.toContain('Web-Technologien');
   });

@@ -18,5 +18,4 @@ Drop an image in `public/projects/` and set the project's `screenshot` field to 
 The data file marks these with `TODO(owner)`. None of them should be invented:
 
 - Live-demo URLs and screenshots
-- A public-safe description and role for GTKEO
 - Canonical site URL, once the domain is known
