@@ -1,0 +1,16 @@
+{
+  "posts": [
+    {
+      "slug": "beispiel",
+      "date": "2026-03-01",
+      "title": {
+        "de": "Beispielbeitrag",
+        "en": "Example post"
+      },
+      "summary": {
+        "de": "Ein Platzhalterbeitrag ohne echte Ereignisse.",
+        "en": "A placeholder post with no real events."
+      }
+    }
+  ]
+}

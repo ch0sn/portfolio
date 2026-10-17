@@ -1,0 +1,22 @@
+<header class="page-intro">
+  <p class="kicker">{{ messages().private.kicker }}</p>
+  <h1>{{ messages().private.blogTitle }}</h1>
+  <p class="lede">{{ messages().private.blogIntro }}</p>
+</header>
+@if (failed()) {
+  <p role="alert">{{ messages().private.missing }}</p>
+} @else if (posts(); as posts) {
+  <div class="stack">
+    @for (post of posts; track post.slug) {
+      <article class="update">
+        <p class="period">
+          <time [attr.datetime]="post.date">{{ textDate(post.date) }}</time>
+        </p>
+        <h2><a [routerLink]="['/privat/blog', post.slug]">{{ language.text(post.title) }}</a></h2>
+        <p>{{ language.text(post.summary) }}</p>
+      </article>
+    }
+  </div>
+} @else {
+  <p>{{ messages().private.loading }}</p>
+}

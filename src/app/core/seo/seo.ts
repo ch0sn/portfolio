@@ -9,9 +9,10 @@ export class Seo {
   private readonly meta = inject(Meta);
   private readonly language = inject(Language);
 
-  apply(pageTitle: string, description: string): void {
+  apply(pageTitle: string, description: string, robots: 'index, follow' | 'noindex, nofollow' = 'index, follow'): void {
     this.title.setTitle(pageTitle);
     this.meta.updateTag({ name: 'description', content: description });
+    this.meta.updateTag({ name: 'robots', content: robots });
     this.meta.updateTag({ property: 'og:title', content: pageTitle });
     this.meta.updateTag({ property: 'og:description', content: description });
     this.meta.updateTag({ property: 'og:type', content: 'website' });

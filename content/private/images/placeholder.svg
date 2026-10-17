@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Beispiel">
+  <rect width="1200" height="800" fill="#e7d3c4"/>
+  <rect x="80" y="80" width="1040" height="640" fill="none" stroke="#8d3d24" stroke-width="8"/>
+  <text x="600" y="420" text-anchor="middle" font-family="Georgia, serif" font-size="92" fill="#1c1915">Beispiel</text>
+</svg>

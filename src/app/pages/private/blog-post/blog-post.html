@@ -1,0 +1,15 @@
+<p><a routerLink="/privat/blog">{{ messages().private.backToBlog }}</a></p>
+@if (failed()) {
+  <p role="alert">{{ messages().private.missing }}</p>
+} @else if (meta(); as meta) {
+  <header class="page-intro">
+    <p class="kicker">{{ messages().private.kicker }}</p>
+    <h1>{{ language.locale() === 'de' ? meta.titleDe : meta.titleEn }}</h1>
+    @if (meta.date) {
+      <p class="period"><time [attr.datetime]="meta.date">{{ textDate(meta.date) }}</time></p>
+    }
+  </header>
+  <div class="prose" [innerHTML]="html()"></div>
+} @else {
+  <p>{{ messages().private.loading }}</p>
+}

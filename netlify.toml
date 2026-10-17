@@ -11,3 +11,23 @@
   from = "/*"
   to = "/index.html"
   status = 200
+
+[[edge_functions]]
+  function = "private-area"
+  path = "/privat"
+
+[[edge_functions]]
+  function = "private-area"
+  path = "/privat/*"
+
+[[headers]]
+  for = "/privat"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "private, no-store"
+
+[[headers]]
+  for = "/privat/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "private, no-store"
