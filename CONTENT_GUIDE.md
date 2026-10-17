@@ -17,10 +17,6 @@ App icons are SVG files in `public/assets/logos/`. Set a project's `logo` field 
 
 There is no live demo. Leave `liveUrl` as `null` and the card hides that link.
 
-## Private area
-
-Friends-and-family pages live under `/privat` and are not linked from the public site. Placeholder text is in `content/private/`. The password is a Netlify environment variable, not a file in this repo. See the README for how to change it and how to move real photos out of git.
-
 ## Still open
 
 The data file marks these with `TODO(owner)`. None of them should be invented:

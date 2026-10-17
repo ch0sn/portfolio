@@ -1,9 +1,0 @@
-<nav class="private-nav" [attr.aria-label]="messages().private.navLabel">
-  <a routerLink="/privat" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">
-    {{ messages().private.updates }}
-  </a>
-  <a routerLink="/privat/ueber-mich" routerLinkActive="is-active">{{ messages().private.about }}</a>
-  <a routerLink="/privat/blog" routerLinkActive="is-active">{{ messages().private.blog }}</a>
-  <button type="button" (click)="logout()" [disabled]="pending()">{{ messages().private.logout }}</button>
-</nav>
-<router-outlet />

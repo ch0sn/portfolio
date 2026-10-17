@@ -22,6 +22,5 @@ describe('App', () => {
     expect(compiled.querySelector('footer')).toBeTruthy();
     expect(compiled.textContent).toContain('Sontek Daniel Cho');
     expect(compiled.textContent).toContain('Frontend-Entwickler');
-    expect(compiled.innerHTML).not.toContain('/privat');
   });
 });
