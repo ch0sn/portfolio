@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <title>realQ&amp;A · Bold gradient glyph</title>
+  <defs>
+    <clipPath id="sq"><path d="M228 0 H796 A228 228 0 0 1 1024 228 V796 A228 228 0 0 1 796 1024 H228 A228 228 0 0 1 0 796 V228 A228 228 0 0 1 228 0 Z"/></clipPath>
+    <linearGradient id="bgC" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F6B08A"/><stop offset="0.5" stop-color="#EC8492"/><stop offset="1" stop-color="#D2587A"/></linearGradient>
+
+  </defs>
+  <g clip-path="url(#sq)">
+    <rect width="1024" height="1024" fill="#EC8492"/>
+    <rect width="1024" height="1024" fill="url(#bgC)"/>
+    <path d="M378 538 C298 478 246 406 260 328 C274 258 338 218 404 228 C460 237 497 278 512 328 C527 278 564 237 620 228 C686 218 750 258 764 328 C778 406 722 474 648 522 C570 572 512 594 512 654" fill="none" stroke="#FFFFFF" stroke-width="84" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M512 846 C468 816 450 794 450 774 C450 752 466 738 484 738 C498 738 507 746 512 756 C517 746 526 738 540 738 C558 738 574 752 574 774 C574 794 556 816 512 846 Z" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="12" stroke-linejoin="round"/>
+
+  </g>
+</svg>

@@ -50,6 +50,8 @@ export interface ProjectShot {
 export interface Project {
   readonly id: ProjectId;
   readonly title: string;
+  /** Public path of the app icon. Omitted from the card when null. */
+  readonly logo: string | null;
   readonly summary: LocalizedText;
   readonly role: LocalizedText | null;
   /** Short status badge. Null when the project has no status to show. */
@@ -260,6 +262,7 @@ export const portfolio: Portfolio = {
     {
       id: 'kin-graph',
       title: 'kin-graph',
+      logo: '/assets/logos/kin-graph.svg',
       summary: {
         de: 'Open-Source-Webanwendung für Genealogie mit knotenbasierter Bedienung, Baumansicht, Zeitstrahl und PWA. Das Frontend ist in TypeScript geschrieben (React, Vite); der Stammbaum bleibt lokal auf dem Gerät.',
         en: 'Open-source genealogy web app with node-based interaction, a tree view, a timeline, and PWA support. The frontend is written in TypeScript (React, Vite); the tree stays on the device.',
@@ -312,6 +315,7 @@ export const portfolio: Portfolio = {
     {
       id: 'kostenplan',
       title: 'Kostenplan',
+      logo: '/assets/logos/kostenplan.svg',
       summary: {
         de: 'Budget-Web-App, gebaut mit Flutter. Die Web-Version ist die weiter entwickelte Fassung; die Android-App ist noch in Entwicklung.',
         en: 'Budget web app built with Flutter. The web version is the more developed one; the Android app is still in development.',
@@ -364,6 +368,7 @@ export const portfolio: Portfolio = {
     {
       id: 'realqa',
       title: 'realQ&A',
+      logo: '/assets/logos/realqa.svg',
       summary: {
         de: 'realQ&A ist eine iOS-App, in der Menschen durchdachte Fragen beantworten: allein, mit Freundinnen und Freunden oder als Paar, über verschiedene Tiefenstufen hinweg, um sich besser kennenzulernen.',
         en: 'realQ&A is an iOS app where people answer thoughtful questions together: solo, with friends, or as a couple, across different depth levels, to get to know each other better.',

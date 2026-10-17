@@ -31,6 +31,9 @@ describe('portfolio data', () => {
     ]);
     const byId = new Map(portfolio.projects.map((project) => [project.id, project]));
     expect(byId.get('kin-graph')?.githubUrl).toBe('https://github.com/ch0sn/kin-graph');
+    expect(byId.get('kin-graph')?.logo).toBe('/assets/logos/kin-graph.svg');
+    expect(byId.get('kostenplan')?.logo).toBe('/assets/logos/kostenplan.svg');
+    expect(byId.get('realqa')?.logo).toBe('/assets/logos/realqa.svg');
     expect(byId.get('kostenplan')?.githubUrl).toBe('https://github.com/ch0sn/budget-app');
     const realQa = byId.get('realqa');
     expect(realQa?.title).toBe('realQ&A');

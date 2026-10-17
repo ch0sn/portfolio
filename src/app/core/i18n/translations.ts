@@ -57,6 +57,7 @@ const de = {
     nextShot: 'Nächste Abbildung',
     closeShot: 'Schließen',
     shotPosition: '{current} von {total}',
+    logoAlt: '{title} App-Icon',
     techLabel: 'Technologien',
   },
   contact: {
@@ -141,6 +142,7 @@ export const translations = {
       nextShot: 'Next image',
       closeShot: 'Close',
       shotPosition: '{current} of {total}',
+      logoAlt: '{title} app icon',
       techLabel: 'Technologies',
     },
     contact: {

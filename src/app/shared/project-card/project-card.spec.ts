@@ -1,5 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { portfolio } from '../../core/data/portfolio.data';
+import { Language } from '../../core/i18n/language';
 import { ProjectCard } from './project-card';
 
 describe('ProjectCard', () => {
@@ -22,6 +23,13 @@ describe('ProjectCard', () => {
 
     expect(element.textContent).not.toContain('Live-Demo');
     expect(element.querySelector('.shot-open img')?.getAttribute('src')).toBe(kinGraph.shots[0]?.src);
+    expect(element.querySelector('.project-logo')?.getAttribute('alt')).toBe('kin-graph App-Icon');
+    const language = TestBed.inject(Language);
+    language.use('en');
+    fixture.detectChanges();
+    expect(element.querySelector('.project-logo')?.getAttribute('alt')).toBe('kin-graph app icon');
+    language.use('de');
+    fixture.detectChanges();
     const thumbs = element.querySelectorAll('.shot-gallery button');
     expect(thumbs).toHaveLength(3);
 

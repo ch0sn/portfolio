@@ -22,6 +22,8 @@ describe('Projects', () => {
     expect(element.textContent).toContain('React Native');
     expect(element.textContent).not.toContain('GTKEO');
     expect(element.textContent).not.toContain('Live-Demo');
+    const logos = [...element.querySelectorAll('.project-logo')].map((img) => img.getAttribute('alt'));
+    expect(logos).toEqual(['kin-graph App-Icon', 'Kostenplan App-Icon', 'realQ&A App-Icon']);
     const cover = element.querySelector('.shot-open');
     expect(cover?.getAttribute('aria-label')).toContain('vier Generationen');
     expect(element.querySelectorAll('.shot-gallery button')).toHaveLength(9);

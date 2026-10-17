@@ -93,6 +93,10 @@ export class ProjectCard {
     }
   }
 
+  protected logoAlt(): string {
+    return this.messages().projects.logoAlt.replaceAll('{title}', this.project().title);
+  }
+
   protected shotLabel(shot: ProjectShot): string {
     return `${this.messages().projects.enlargeShot}. ${this.language.text(shot.alt)}`;
   }
