@@ -19,5 +19,4 @@ There is no live demo. Leave `liveUrl` as `null` and the card hides that link.
 
 The data file marks these with `TODO(owner)`. None of them should be invented:
 
-- Desktop web screenshots for Kostenplan
 - Canonical site URL, once the domain is known

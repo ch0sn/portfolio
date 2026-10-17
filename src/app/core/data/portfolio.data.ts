@@ -5,7 +5,6 @@ import { LocalizedText } from '../i18n/localize';
  * UI chrome (navigation, buttons, meta labels) lives in `core/i18n/translations.ts`.
  *
  * TODO(owner): still unknown. Do not invent these.
- * - desktop web screenshots for Kostenplan, under public/projects/kostenplan/
  * - canonical site URL, once the domain is known
  */
 
@@ -322,8 +321,44 @@ export const portfolio: Portfolio = {
       technologies: ['Flutter', 'Web'],
       githubUrl: 'https://github.com/ch0sn/budget-app',
       liveUrl: null,
-      // TODO(owner): desktop web screenshots under public/projects/kostenplan/.
-      shots: [],
+      shots: [
+        {
+          src: '/projects/kostenplan/kostenplan-4.webp',
+          width: 1440,
+          height: 900,
+          alt: {
+            de: 'Kostenplan im Web auf dem Desktop: Monatsübersicht mit Seitenmenü, Donut für Einnahmen und Ausgaben und Balkendiagramm. Die Haushaltszahlen sind Beispieldaten.',
+            en: 'Kostenplan in the web app on desktop: monthly overview with a side menu, an income and expense donut, and a bar chart. The household figures are sample data.',
+          },
+        },
+        {
+          src: '/projects/kostenplan/kostenplan-1.webp',
+          width: 390,
+          height: 844,
+          alt: {
+            de: 'Kostenplan im Web auf einem schmalen Bildschirm: Monatsübersicht mit Donut für Einnahmen und Ausgaben und Balken zur Bilanz. Die Haushaltszahlen sind Beispieldaten.',
+            en: 'Kostenplan in the web app on a narrow screen: monthly overview with an income and expense donut and balance bars. The household figures are sample data.',
+          },
+        },
+        {
+          src: '/projects/kostenplan/kostenplan-2.webp',
+          width: 390,
+          height: 844,
+          alt: {
+            de: 'Kostenplan im Web auf einem schmalen Bildschirm: Dialog zum Bearbeiten einer wiederkehrenden Ausgabe. Die Einträge sind Beispieldaten.',
+            en: 'Kostenplan in the web app on a narrow screen: dialog for editing a recurring expense. The entries are sample data.',
+          },
+        },
+        {
+          src: '/projects/kostenplan/kostenplan-3.webp',
+          width: 390,
+          height: 844,
+          alt: {
+            de: 'Kostenplan im Web auf einem schmalen Bildschirm: Monatsrückblick mit der Verteilung nach Kategorien. Die Haushaltszahlen sind Beispieldaten.',
+            en: 'Kostenplan in the web app on a narrow screen: monthly recap with the mix by category. The household figures are sample data.',
+          },
+        },
+      ],
       featured: true,
     },
     {

@@ -43,7 +43,7 @@ describe('ProjectCard', () => {
 
   it('keeps the drawn cover when a project has no screenshots', async () => {
     const fixture = TestBed.createComponent(ProjectCard);
-    fixture.componentRef.setInput('project', kostenplan);
+    fixture.componentRef.setInput('project', { ...kostenplan, shots: [] });
     fixture.componentRef.setInput('gallery', true);
     await fixture.whenStable();
     const element = fixture.nativeElement as HTMLElement;

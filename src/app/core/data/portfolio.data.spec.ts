@@ -55,7 +55,17 @@ describe('portfolio data', () => {
     expect(kostenplan?.status?.de).toBe('Mobile-App in Entwicklung');
     expect(kostenplan?.status?.en).toBe('Mobile app in development');
     expect(kostenplan?.summary.en).toContain('web version');
-    expect(kostenplan?.shots).toEqual([]);
+    expect(kostenplan?.shots.map((shot) => shot.src)).toEqual([
+      '/projects/kostenplan/kostenplan-4.webp',
+      '/projects/kostenplan/kostenplan-1.webp',
+      '/projects/kostenplan/kostenplan-2.webp',
+      '/projects/kostenplan/kostenplan-3.webp',
+    ]);
+    expect(kostenplan?.shots[0]?.alt.de).toContain('Desktop');
+    expect(kostenplan?.shots.slice(1).every((shot) => shot.alt.de.includes('schmalen Bildschirm'))).toBe(
+      true,
+    );
+    expect(kostenplan?.shots.every((shot) => shot.alt.en.includes('sample data'))).toBe(true);
     expect(realQa?.shots.map((shot) => shot.src)).toEqual([
       '/projects/realqa/realqa-1.webp',
       '/projects/realqa/realqa-2.webp',

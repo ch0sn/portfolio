@@ -24,14 +24,15 @@ describe('Projects', () => {
     expect(element.textContent).not.toContain('Live-Demo');
     const cover = element.querySelector('.shot-open');
     expect(cover?.getAttribute('aria-label')).toContain('vier Generationen');
-    expect(element.querySelectorAll('.shot-gallery button')).toHaveLength(6);
-    expect(element.querySelectorAll('.poster')).toHaveLength(1);
+    expect(element.querySelectorAll('.shot-gallery button')).toHaveLength(9);
+    expect(element.querySelectorAll('.poster')).toHaveLength(0);
     expect(element.textContent).toContain('Mobile-App in Entwicklung');
     expect(element.textContent).toContain('Flutter');
     const labels = [...element.querySelectorAll('.shot-open, .shot-gallery button')].map((button) =>
       button.getAttribute('aria-label'),
     );
     expect(labels.some((label) => label?.includes('Solo, Friends und Couple'))).toBe(true);
+    expect(labels.some((label) => label?.includes('Seitenmenü'))).toBe(true);
     expect(labels.join(' ')).not.toContain('GTKEO');
     expect(element.textContent).not.toContain('Web-Technologien');
   });
